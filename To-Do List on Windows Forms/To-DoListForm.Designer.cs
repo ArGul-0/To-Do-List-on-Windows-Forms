@@ -28,63 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            list = new ListBox();
-            checkBox1 = new CheckBox();
-            addList = new Button();
-            removeList = new Button();
+            listTasks = new ListBox();
+            addTask = new Button();
+            removeTask = new Button();
+            inputTask = new TextBox();
             SuspendLayout();
             // 
-            // list
+            // listTasks
             // 
-            list.BackColor = Color.FromArgb(60, 60, 60);
-            list.BorderStyle = BorderStyle.None;
-            list.Dock = DockStyle.Left;
-            list.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            list.ForeColor = Color.WhiteSmoke;
-            list.FormattingEnabled = true;
-            list.ItemHeight = 30;
-            list.Location = new Point(0, 0);
-            list.Name = "list";
-            list.Size = new Size(500, 461);
-            list.TabIndex = 0;
+            listTasks.BackColor = Color.FromArgb(60, 60, 60);
+            listTasks.BorderStyle = BorderStyle.None;
+            listTasks.Dock = DockStyle.Left;
+            listTasks.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            listTasks.ForeColor = Color.WhiteSmoke;
+            listTasks.FormattingEnabled = true;
+            listTasks.ItemHeight = 30;
+            listTasks.Location = new Point(0, 0);
+            listTasks.Name = "listTasks";
+            listTasks.Size = new Size(500, 461);
+            listTasks.TabIndex = 0;
             // 
-            // checkBox1
+            // addTask
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(506, 12);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(83, 19);
-            checkBox1.TabIndex = 1;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
+            addTask.BackColor = Color.FromArgb(60, 60, 60);
+            addTask.FlatAppearance.BorderSize = 0;
+            addTask.FlatStyle = FlatStyle.Flat;
+            addTask.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            addTask.ForeColor = Color.WhiteSmoke;
+            addTask.Location = new Point(647, 374);
+            addTask.Name = "addTask";
+            addTask.Size = new Size(125, 75);
+            addTask.TabIndex = 2;
+            addTask.Text = "+";
+            addTask.UseVisualStyleBackColor = false;
             // 
-            // addList
+            // removeTask
             // 
-            addList.BackColor = Color.FromArgb(60, 60, 60);
-            addList.FlatAppearance.BorderSize = 0;
-            addList.FlatStyle = FlatStyle.Flat;
-            addList.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            addList.ForeColor = Color.WhiteSmoke;
-            addList.Location = new Point(647, 374);
-            addList.Name = "addList";
-            addList.Size = new Size(125, 75);
-            addList.TabIndex = 2;
-            addList.Text = "+";
-            addList.UseVisualStyleBackColor = false;
+            removeTask.BackColor = Color.FromArgb(60, 60, 60);
+            removeTask.FlatAppearance.BorderSize = 0;
+            removeTask.FlatStyle = FlatStyle.Flat;
+            removeTask.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            removeTask.ForeColor = Color.WhiteSmoke;
+            removeTask.Location = new Point(516, 374);
+            removeTask.Name = "removeTask";
+            removeTask.Size = new Size(125, 75);
+            removeTask.TabIndex = 3;
+            removeTask.Text = "-";
+            removeTask.UseVisualStyleBackColor = false;
             // 
-            // removeList
+            // inputTask
             // 
-            removeList.BackColor = Color.FromArgb(60, 60, 60);
-            removeList.FlatAppearance.BorderSize = 0;
-            removeList.FlatStyle = FlatStyle.Flat;
-            removeList.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            removeList.ForeColor = Color.WhiteSmoke;
-            removeList.Location = new Point(516, 374);
-            removeList.Name = "removeList";
-            removeList.Size = new Size(125, 75);
-            removeList.TabIndex = 3;
-            removeList.Text = "-";
-            removeList.UseVisualStyleBackColor = false;
+            inputTask.BackColor = Color.FromArgb(75, 75, 75);
+            inputTask.BorderStyle = BorderStyle.None;
+            inputTask.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            inputTask.ForeColor = Color.WhiteSmoke;
+            inputTask.Location = new Point(516, 12);
+            inputTask.Multiline = true;
+            inputTask.Name = "inputTask";
+            inputTask.Size = new Size(256, 347);
+            inputTask.TabIndex = 4;
+            inputTask.TextChanged += inputTask_TextChanged;
             // 
             // ToDoListForm
             // 
@@ -92,10 +95,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(50, 50, 50);
             ClientSize = new Size(784, 461);
-            Controls.Add(removeList);
-            Controls.Add(addList);
-            Controls.Add(checkBox1);
-            Controls.Add(list);
+            Controls.Add(inputTask);
+            Controls.Add(removeTask);
+            Controls.Add(addTask);
+            Controls.Add(listTasks);
             Name = "ToDoListForm";
             Text = "Form1";
             ResumeLayout(false);
@@ -104,9 +107,9 @@
 
         #endregion
 
-        private ListBox list;
-        private CheckBox checkBox1;
-        private Button addList;
-        private Button removeList;
+        private ListBox listTasks;
+        private Button addTask;
+        private Button removeTask;
+        private TextBox inputTask;
     }
 }
