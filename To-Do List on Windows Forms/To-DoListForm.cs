@@ -11,7 +11,8 @@ namespace To_Do_List_on_Windows_Forms
             InitializeComponent();
             listTasks.DataSource = tasks;
         }
-        private void listTasks_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void listTasks_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
@@ -23,12 +24,18 @@ namespace To_Do_List_on_Windows_Forms
 
         private void addTask_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrWhiteSpace(inputTask.Text))
+            {
+                MessageBox.Show("Please enter a task.");
+                return;
+            }
+            tasks.Add(inputTask.Text);
+            inputTask.Clear();
         }
 
         private void removeTask_Click(object sender, EventArgs e)
         {
-
+            tasks.Remove(listTasks.SelectedItem as string);
         }
     }
 }

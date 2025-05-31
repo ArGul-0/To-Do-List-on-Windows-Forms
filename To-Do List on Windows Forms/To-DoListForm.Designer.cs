@@ -42,11 +42,13 @@
             listTasks.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
             listTasks.ForeColor = Color.WhiteSmoke;
             listTasks.FormattingEnabled = true;
+            listTasks.HorizontalScrollbar = true;
             listTasks.ItemHeight = 30;
             listTasks.Location = new Point(0, 0);
             listTasks.Name = "listTasks";
             listTasks.Size = new Size(500, 461);
             listTasks.TabIndex = 0;
+            listTasks.SelectedIndexChanged += listTasks_SelectedIndexChanged_1;
             // 
             // addTask
             // 
@@ -61,6 +63,7 @@
             addTask.TabIndex = 2;
             addTask.Text = "+";
             addTask.UseVisualStyleBackColor = false;
+            addTask.Click += addTask_Click;
             // 
             // removeTask
             // 
@@ -75,6 +78,7 @@
             removeTask.TabIndex = 3;
             removeTask.Text = "-";
             removeTask.UseVisualStyleBackColor = false;
+            removeTask.Click += removeTask_Click;
             // 
             // inputTask
             // 
