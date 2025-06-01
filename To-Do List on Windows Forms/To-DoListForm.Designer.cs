@@ -39,6 +39,7 @@
             listTasks.BackColor = Color.FromArgb(60, 60, 60);
             listTasks.BorderStyle = BorderStyle.None;
             listTasks.Dock = DockStyle.Left;
+            listTasks.DrawMode = DrawMode.OwnerDrawVariable;
             listTasks.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
             listTasks.ForeColor = Color.WhiteSmoke;
             listTasks.FormattingEnabled = true;
@@ -48,7 +49,8 @@
             listTasks.Name = "listTasks";
             listTasks.Size = new Size(500, 461);
             listTasks.TabIndex = 0;
-            listTasks.SelectedIndexChanged += listTasks_SelectedIndexChanged_1;
+            listTasks.DrawItem += listTasks_DrawItem;
+            listTasks.MeasureItem += listTasks_MeasureItem;
             // 
             // addTask
             // 
@@ -91,7 +93,6 @@
             inputTask.Name = "inputTask";
             inputTask.Size = new Size(256, 347);
             inputTask.TabIndex = 4;
-            inputTask.TextChanged += inputTask_TextChanged;
             // 
             // ToDoListForm
             // 
@@ -103,8 +104,10 @@
             Controls.Add(removeTask);
             Controls.Add(addTask);
             Controls.Add(listTasks);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "ToDoListForm";
-            Text = "Form1";
+            Text = "To-Do list";
             ResumeLayout(false);
             PerformLayout();
         }
