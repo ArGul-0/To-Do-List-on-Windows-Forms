@@ -25,6 +25,11 @@ namespace To_Do_List_on_Windows_Forms
 
         private void removeTask_Click(object sender, EventArgs e)
         {
+            if(listTasks.SelectedIndex == -1)
+            {
+                MessageBox.Show("The task to delete is not selected.");
+                return;
+            }
             tasks.Remove(listTasks.SelectedItem as string);
         }
 
