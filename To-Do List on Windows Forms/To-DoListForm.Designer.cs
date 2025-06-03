@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToDoListForm));
             listTasks = new ListBox();
             addTask = new Button();
             removeTask = new Button();
@@ -105,6 +106,7 @@
             Controls.Add(addTask);
             Controls.Add(listTasks);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "ToDoListForm";
             Text = "To-Do list";
