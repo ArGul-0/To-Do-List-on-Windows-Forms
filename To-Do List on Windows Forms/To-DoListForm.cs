@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Text.Json;
 
 namespace To_Do_List_on_Windows_Forms
 {
@@ -19,18 +20,27 @@ namespace To_Do_List_on_Windows_Forms
                 MessageBox.Show("Please enter a task.");
                 return;
             }
-            tasks.Add(inputTask.Text);
+            Note note = new Note
+            {
+                Id = tasks.Count + 1,
+                Text = inputTask.Text
+            };
+            tasks.Add(note.Text);
             inputTask.Clear();
+
+            SaveNotes();
         }
 
         private void removeTask_Click(object sender, EventArgs e)
         {
-            if(listTasks.SelectedIndex == -1)
+            if (listTasks.SelectedIndex == -1)
             {
                 MessageBox.Show("The task to delete is not selected.");
                 return;
             }
             tasks.Remove(listTasks.SelectedItem as string);
+
+            SaveNotes();
         }
 
 
@@ -106,6 +116,21 @@ namespace To_Do_List_on_Windows_Forms
 
             // Рисуем рамку фокуса, если нужно
             e.DrawFocusRectangle();
+        }
+
+
+
+        private void ToDoListForm_Load(object sender, EventArgs e)
+        {
+            LoadNotes();
+        }
+        private void LoadNotes()
+        {
+
+        }
+        private void SaveNotes()
+        {
+
         }
     }
 }
