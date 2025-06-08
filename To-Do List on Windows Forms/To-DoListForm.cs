@@ -1,11 +1,10 @@
 using System.ComponentModel;
-using System.Text.Json;
 
 namespace To_Do_List_on_Windows_Forms
 {
     public partial class ToDoListForm : Form
     {
-        BindingList<string> tasks = new BindingList<string>();
+        public static BindingList<string> tasks = new BindingList<string>();
 
         public ToDoListForm()
         {
@@ -28,7 +27,7 @@ namespace To_Do_List_on_Windows_Forms
             tasks.Add(note.Text);
             inputTask.Clear();
 
-            SaveNotes();
+            NoteStorage.Save(tasks);
         }
 
         private void removeTask_Click(object sender, EventArgs e)
@@ -40,7 +39,7 @@ namespace To_Do_List_on_Windows_Forms
             }
             tasks.Remove(listTasks.SelectedItem as string);
 
-            SaveNotes();
+            NoteStorage.Save(tasks);
         }
 
 
@@ -122,15 +121,7 @@ namespace To_Do_List_on_Windows_Forms
 
         private void ToDoListForm_Load(object sender, EventArgs e)
         {
-            LoadNotes();
-        }
-        private void LoadNotes()
-        {
-
-        }
-        private void SaveNotes()
-        {
-
+            tasks = NoteStorage.Load();
         }
     }
 }
