@@ -24,7 +24,6 @@ namespace To_Do_List_on_Windows_Forms
             }
             Note note = new Note
             {
-                Id = tasks.Count + 1,
                 Text = inputTask.Text
             };
             tasks.Add(note.Text);
