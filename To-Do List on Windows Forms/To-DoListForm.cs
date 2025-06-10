@@ -5,10 +5,13 @@ namespace To_Do_List_on_Windows_Forms
     public partial class ToDoListForm : Form
     {
         public static BindingList<string> tasks = new BindingList<string>();
+        public static NoteStorage noteStorage;
 
         public ToDoListForm()
         {
             InitializeComponent();
+            noteStorage = new NoteStorage();
+            tasks = noteStorage.Load(); //Загрузка задач из файла при запуске приложения
             listTasks.DataSource = tasks;
         }
 
@@ -27,7 +30,7 @@ namespace To_Do_List_on_Windows_Forms
             tasks.Add(note.Text);
             inputTask.Clear();
 
-            NoteStorage.Save(tasks);
+            noteStorage.Save(tasks);
         }
 
         private void removeTask_Click(object sender, EventArgs e)
@@ -39,7 +42,7 @@ namespace To_Do_List_on_Windows_Forms
             }
             tasks.Remove(listTasks.SelectedItem as string);
 
-            NoteStorage.Save(tasks);
+            noteStorage.Save(tasks);
         }
 
 
@@ -115,13 +118,6 @@ namespace To_Do_List_on_Windows_Forms
 
             // Рисуем рамку фокуса, если нужно
             e.DrawFocusRectangle();
-        }
-
-
-
-        private void ToDoListForm_Load(object sender, EventArgs e)
-        {
-            tasks = NoteStorage.Load();
         }
     }
 }
