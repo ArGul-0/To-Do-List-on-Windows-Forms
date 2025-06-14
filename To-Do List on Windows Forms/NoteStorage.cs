@@ -23,7 +23,16 @@ namespace To_Do_List_on_Windows_Forms
             // Сериализация списка задач в JSON
             jsonContent = JsonConvert.SerializeObject(list, Formatting.Indented);
             // Запись JSON в файл
-            File.WriteAllText(jsonFilePath, jsonContent);
+            try
+            {
+                File.WriteAllText(jsonFilePath, jsonContent);
+            }
+            catch (Exception ex)
+            {
+                // например, вывести в MessageBox или записать в свой лог
+                MessageBox.Show($"Не удалось сохранить файл:\n{ex.GetType().Name}: {ex.Message}",
+                                "Ошибка записи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public BindingList<string> Load()
         {

@@ -10,7 +10,7 @@
     <ApplicationIcon>Images\To-Do List Logo.ico</ApplicationIcon>
 
 	<PublishSingleFile>true</PublishSingleFile>
-	<SelfContained>true</SelfContained>
+	<SelfContained>false</SelfContained>
 	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	<PublishTrimmed>false</PublishTrimmed>
   </PropertyGroup>
