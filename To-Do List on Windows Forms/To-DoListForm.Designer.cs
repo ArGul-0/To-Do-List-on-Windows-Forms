@@ -55,7 +55,7 @@
             // 
             // addTask
             // 
-            addTask.BackColor = Color.FromArgb(60, 60, 60);
+            addTask.BackColor = Color.FromArgb(65, 65, 65);
             addTask.FlatAppearance.BorderSize = 0;
             addTask.FlatStyle = FlatStyle.Flat;
             addTask.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
@@ -70,7 +70,7 @@
             // 
             // removeTask
             // 
-            removeTask.BackColor = Color.FromArgb(60, 60, 60);
+            removeTask.BackColor = Color.FromArgb(65, 65, 65);
             removeTask.FlatAppearance.BorderSize = 0;
             removeTask.FlatStyle = FlatStyle.Flat;
             removeTask.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
